@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="90881CB4-129C-0026-3599-2E9D058F4E25" name="REGION">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>97DECA12-4CCE-44E4-BEA4-5ECDF15A6277</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<adequatelyNormalized>YES</adequatelyNormalized>
+<expectedVolumes></expectedVolumes>
+<maxVolumes></maxVolumes>
+<minVolumes></minVolumes>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_region" id="99AF4D7D-5972-4548-5024-5E3AC31436C8">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>29B8B5FA-48C0-4E0C-A198-DE213D1DF964</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="BA1EFBBD-7529-DBB2-F114-1E2A59E71277">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>0C6C3951-A50A-4F0A-80BA-F8F32C719367</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="50E5EE6F-CBAA-0A70-A1CA-740899C366F7" name="REGION_PK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>A4E3D36B-A894-4DFF-89EA-B4178A805F5F</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99AF4D7D-5972-4548-5024-5E3AC31436C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

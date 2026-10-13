@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DDB1323A-A380-1461-1471-3369A8D0CB48" containerWithKeyObject="5B933EF0-B3D1-05A3-ED3B-FBB02FBE6FBF" localFKIndex="374A12DA-E5C1-9F12-742B-54B7439272A1" name="TRABAJADOR_JUGADOR_TOTAL_FK">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:23:42 UTC</createdTime>
+<generatorID>64D08B60-35F7-4711-B402-D8B409B3E242</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<importedID>E85A59CC-CC24-9D8E-406B-0D724F22916C</importedID>
+<referredTableLongName>JUGADOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>11C4B15B-11A9-3426-5768-9D9FFE2D146C</referredTableID>
+<keyObject>178D9ADA-DA77-AC73-9B5C-462BB5BA264E</keyObject>
+<referredKeyID>178D9ADA-DA77-AC73-9B5C-462BB5BA264E</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>codigo_inscripcion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

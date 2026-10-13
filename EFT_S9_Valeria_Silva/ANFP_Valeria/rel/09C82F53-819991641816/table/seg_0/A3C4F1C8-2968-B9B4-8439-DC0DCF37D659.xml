@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A3C4F1C8-2968-B9B4-8439-DC0DCF37D659" name="NACIONALIDAD">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>16BBC8CD-1120-440D-ACD3-75AE2AC5163C</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<adequatelyNormalized>YES</adequatelyNormalized>
+<expectedVolumes></expectedVolumes>
+<maxVolumes></maxVolumes>
+<minVolumes></minVolumes>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_nacion" id="E53704BA-318D-DE0C-3710-49F9BBDE73A7">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>26FD7B4B-448D-4B81-BBF0-C573E39F1463</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementStartWith>210</autoIncrementStartWith>
+<autoIncrementIncrementBy>2</autoIncrementIncrementBy>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="descripcion" id="C081FC90-4ADD-87F4-7DB9-D125AED35E92">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>20B3CD6D-49C6-4CC1-809E-FD5ABE1EC53C</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4E8B7BA5-1DF4-FA10-A5F9-6D64D468B5D9" name="NACIONALIDAD_PK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>E495022C-0E36-4A05-9AD0-DCAACBE38451</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E53704BA-318D-DE0C-3710-49F9BBDE73A7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

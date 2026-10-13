@@ -1,0 +1,306 @@
+
+SET DEFINE OFF
+SET SERVEROUTPUT ON
+SET LINESIZE 220
+SET PAGESIZE 100
+WHENEVER SQLERROR EXIT FAILURE ROLLBACK
+
+DECLARE
+  v_existentes NUMBER;
+BEGIN
+  IF USER <> 'PRY2204_S9' OR SYS_CONTEXT('USERENV', 'CON_NAME') <> 'FREEPDB1' THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Usar PRY2204_S9 en FREEPDB1.');
+  END IF;
+  SELECT COUNT(*) INTO v_existentes
+  FROM user_objects
+  WHERE object_name IN ('REGION','COMUNA','ASOCIACION','NACIONALIDAD',
+    'CLUB_FUTBOL','ESCUELA_FUTBOL','IDIOMA','TRABAJADOR','JUGADOR',
+    'PERSONAL_PLANTA','JUGADOR_IDIOMA','PERMANENCIA_CLUB','SEQ_CLUB_FUTBOL');
+  IF v_existentes > 0 THEN
+    RAISE_APPLICATION_ERROR(-20002, 'Existen objetos ANFP. No se borraran ni se recrearan automaticamente.');
+  END IF;
+END;
+/
+
+CREATE TABLE REGION (
+  id_region NUMBER(3) NOT NULL,
+  nombre VARCHAR2(100) NOT NULL,
+  CONSTRAINT REGION_PK PRIMARY KEY (id_region)
+);
+
+CREATE TABLE COMUNA (
+  id_comuna NUMBER(5) NOT NULL,
+  nombre VARCHAR2(100) NOT NULL,
+  id_region NUMBER(3) NOT NULL,
+  CONSTRAINT COMUNA_PK PRIMARY KEY (id_comuna),
+  CONSTRAINT COMUNA_REGION_FK FOREIGN KEY (id_region) REFERENCES REGION(id_region)
+);
+
+CREATE TABLE ASOCIACION (
+  id_asociacion NUMBER(5) NOT NULL,
+  nombre_asociacion VARCHAR2(120) NOT NULL,
+  fecha_creacion DATE NOT NULL,
+  tipo_asociacion CHAR(1) NOT NULL,
+  CONSTRAINT ASOCIACION_PK PRIMARY KEY (id_asociacion),
+  CONSTRAINT ASOCIACION_FECHA_CK CHECK (fecha_creacion >= DATE '1980-12-31'),
+  CONSTRAINT ASOCIACION_TIPO_CK CHECK (tipo_asociacion IN ('P','A'))
+);
+
+CREATE TABLE NACIONALIDAD (
+  id_nacion NUMBER(5) GENERATED ALWAYS AS IDENTITY
+    (START WITH 210 INCREMENT BY 2 NOCACHE),
+  descripcion VARCHAR2(60) NOT NULL,
+  CONSTRAINT NACIONALIDAD_PK PRIMARY KEY (id_nacion)
+);
+
+CREATE SEQUENCE SEQ_CLUB_FUTBOL START WITH 703 INCREMENT BY 4 NOCACHE NOCYCLE;
+
+CREATE TABLE CLUB_FUTBOL (
+  id_club NUMBER(6) NOT NULL,
+  nombre_club VARCHAR2(100) NOT NULL,
+  patrimonio NUMBER(14,0) NOT NULL,
+  ubicacion_calle VARCHAR2(150) NOT NULL,
+  tipo_club VARCHAR2(12) NOT NULL,
+  CONSTRAINT CLUB_FUTBOL_PK PRIMARY KEY (id_club),
+  CONSTRAINT CLUB_FUTBOL_NOMBRE_UN UNIQUE (nombre_club),
+  CONSTRAINT CLUB_FUTBOL_PATRIMONIO_CK CHECK (patrimonio >= 0),
+  CONSTRAINT CLUB_FUTBOL_TIPO_CK CHECK (tipo_club IN ('Profesional','Amateur'))
+);
+
+CREATE TABLE ESCUELA_FUTBOL (
+  id_escuela NUMBER(5) NOT NULL,
+  nombre VARCHAR2(100) NOT NULL,
+  capacidad NUMBER(6) NOT NULL,
+  fecha_fundacion DATE NOT NULL,
+  CONSTRAINT ESCUELA_FUTBOL_PK PRIMARY KEY (id_escuela),
+  CONSTRAINT ESCUELA_CAPACIDAD_CK CHECK (capacidad > 0)
+);
+
+CREATE TABLE IDIOMA (
+  id_idioma NUMBER(4) NOT NULL,
+  nombre VARCHAR2(50) NOT NULL,
+  CONSTRAINT IDIOMA_PK PRIMARY KEY (id_idioma),
+  CONSTRAINT IDIOMA_NOMBRE_UN UNIQUE (nombre)
+);
+
+CREATE TABLE TRABAJADOR (
+  codigo_inscripcion NUMBER(8) NOT NULL,
+  rut NUMBER(8) NOT NULL,
+  dv CHAR(1) NOT NULL,
+  nombres VARCHAR2(80) NOT NULL,
+  apellido_paterno VARCHAR2(50) NOT NULL,
+  apellido_materno VARCHAR2(50),
+  sueldo_base NUMBER(12,0) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  genero VARCHAR2(20) NOT NULL,
+  estado_civil VARCHAR2(20) NOT NULL,
+  fono_movil VARCHAR2(20) NOT NULL,
+  direccion VARCHAR2(150) NOT NULL,
+  email VARCHAR2(120),
+  id_comuna NUMBER(5) NOT NULL,
+  id_nacion NUMBER(5) NOT NULL,
+  CONSTRAINT TRABAJADOR_PK PRIMARY KEY (codigo_inscripcion),
+  CONSTRAINT TRABAJADOR_RUT_UN UNIQUE (rut),
+  CONSTRAINT TRABAJADOR_CODIGO_CK CHECK (codigo_inscripcion > 0),
+  CONSTRAINT TRABAJADOR_RUT_CK CHECK (rut > 0),
+  CONSTRAINT TRABAJADOR_DV_CK CHECK (dv IN ('0','1','2','3','4','5','6','7','8','9','K')),
+  CONSTRAINT TRABAJADOR_SUELDO_CK CHECK (sueldo_base >= 0),
+  CONSTRAINT TRABAJADOR_COMUNA_FK FOREIGN KEY (id_comuna) REFERENCES COMUNA(id_comuna),
+  CONSTRAINT TRABAJADOR_NACIONALIDAD_FK FOREIGN KEY (id_nacion) REFERENCES NACIONALIDAD(id_nacion)
+);
+
+CREATE TABLE JUGADOR (
+  codigo_inscripcion NUMBER(8) NOT NULL,
+  puesto VARCHAR2(40) NOT NULL,
+  total_premios NUMBER(14,0) DEFAULT 0 NOT NULL,
+  anio_fin_amateur NUMBER(4),
+  id_asociacion NUMBER(5) NOT NULL,
+  id_escuela NUMBER(5),
+  CONSTRAINT JUGADOR_PK PRIMARY KEY (codigo_inscripcion),
+  CONSTRAINT JUGADOR_TRABAJADOR_FK FOREIGN KEY (codigo_inscripcion) REFERENCES TRABAJADOR(codigo_inscripcion),
+  CONSTRAINT JUGADOR_ASOCIACION_FK FOREIGN KEY (id_asociacion) REFERENCES ASOCIACION(id_asociacion),
+  CONSTRAINT JUGADOR_ESCUELA_FK FOREIGN KEY (id_escuela) REFERENCES ESCUELA_FUTBOL(id_escuela),
+  CONSTRAINT JUGADOR_PREMIOS_CK CHECK (total_premios >= 0),
+  CONSTRAINT JUGADOR_ANIO_CK CHECK (anio_fin_amateur BETWEEN 1000 AND 9999),
+  CONSTRAINT JUGADOR_FORMACION_CK CHECK (
+    (id_escuela IS NULL AND anio_fin_amateur IS NULL)
+    OR (id_escuela IS NOT NULL AND anio_fin_amateur IS NOT NULL))
+);
+
+CREATE TABLE PERSONAL_PLANTA (
+  codigo_inscripcion NUMBER(8) NOT NULL,
+  horas_trabajadas NUMBER(6,2),
+  valor_hora_extra NUMBER(10,0),
+  id_club NUMBER(6) NOT NULL,
+  CONSTRAINT PERSONAL_PLANTA_PK PRIMARY KEY (codigo_inscripcion),
+  CONSTRAINT PLANTA_TRABAJADOR_FK FOREIGN KEY (codigo_inscripcion) REFERENCES TRABAJADOR(codigo_inscripcion),
+  CONSTRAINT PLANTA_CLUB_FK FOREIGN KEY (id_club) REFERENCES CLUB_FUTBOL(id_club),
+  CONSTRAINT PLANTA_HORAS_CK CHECK (horas_trabajadas >= 0),
+  CONSTRAINT PLANTA_VALOR_HORA_CK CHECK (valor_hora_extra >= 0)
+);
+
+CREATE TABLE JUGADOR_IDIOMA (
+  codigo_inscripcion NUMBER(8) NOT NULL,
+  id_idioma NUMBER(4) NOT NULL,
+  nivel_dominio VARCHAR2(30) NOT NULL,
+  CONSTRAINT JUGADOR_IDIOMA_PK PRIMARY KEY (codigo_inscripcion,id_idioma),
+  CONSTRAINT JUGADOR_IDIOMA_JUGADOR_FK FOREIGN KEY (codigo_inscripcion) REFERENCES JUGADOR(codigo_inscripcion),
+  CONSTRAINT JUGADOR_IDIOMA_IDIOMA_FK FOREIGN KEY (id_idioma) REFERENCES IDIOMA(id_idioma)
+);
+
+CREATE TABLE PERMANENCIA_CLUB (
+  codigo_inscripcion NUMBER(8) NOT NULL,
+  id_club NUMBER(6) NOT NULL,
+  fecha_inicio DATE NOT NULL,
+  fecha_termino DATE,
+  CONSTRAINT PERMANENCIA_CLUB_PK PRIMARY KEY (codigo_inscripcion,id_club,fecha_inicio),
+  CONSTRAINT PERMANENCIA_JUGADOR_FK FOREIGN KEY (codigo_inscripcion) REFERENCES JUGADOR(codigo_inscripcion),
+  CONSTRAINT PERMANENCIA_CLUB_FK FOREIGN KEY (id_club) REFERENCES CLUB_FUTBOL(id_club),
+  CONSTRAINT PERMANENCIA_FECHAS_CK CHECK (fecha_termino IS NULL OR fecha_termino >= fecha_inicio)
+);
+
+ALTER TABLE TRABAJADOR ADD (tipo_trabajador CHAR(1));
+UPDATE TRABAJADOR t SET tipo_trabajador = CASE
+  WHEN EXISTS (SELECT 1 FROM JUGADOR j WHERE j.codigo_inscripcion=t.codigo_inscripcion) THEN 'J'
+  ELSE 'P' END;
+COMMIT;
+ALTER TABLE TRABAJADOR MODIFY (tipo_trabajador NOT NULL);
+ALTER TABLE TRABAJADOR ADD CONSTRAINT TRABAJADOR_TIPO_CK CHECK (tipo_trabajador IN ('J','P'));
+ALTER TABLE TRABAJADOR ADD CONSTRAINT TRABAJADOR_COD_TIPO_UN UNIQUE (codigo_inscripcion,tipo_trabajador);
+ALTER TABLE TRABAJADOR ADD (
+  jugador_ref GENERATED ALWAYS AS (CASE WHEN tipo_trabajador='J' THEN codigo_inscripcion END) VIRTUAL,
+  planta_ref GENERATED ALWAYS AS (CASE WHEN tipo_trabajador='P' THEN codigo_inscripcion END) VIRTUAL
+);
+ALTER TABLE JUGADOR ADD (
+  tipo_trabajador GENERATED ALWAYS AS (CAST(CASE WHEN codigo_inscripcion IS NOT NULL THEN 'J' END AS CHAR(1))) VIRTUAL
+);
+ALTER TABLE PERSONAL_PLANTA ADD (
+  tipo_trabajador GENERATED ALWAYS AS (CAST(CASE WHEN codigo_inscripcion IS NOT NULL THEN 'P' END AS CHAR(1))) VIRTUAL
+);
+
+ALTER TABLE JUGADOR ADD CONSTRAINT JUGADOR_TIPO_FK
+  FOREIGN KEY (codigo_inscripcion,tipo_trabajador)
+  REFERENCES TRABAJADOR(codigo_inscripcion,tipo_trabajador)
+  DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE PERSONAL_PLANTA ADD CONSTRAINT PLANTA_TIPO_FK
+  FOREIGN KEY (codigo_inscripcion,tipo_trabajador)
+  REFERENCES TRABAJADOR(codigo_inscripcion,tipo_trabajador)
+  DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE TRABAJADOR ADD CONSTRAINT TRABAJADOR_JUGADOR_TOTAL_FK
+  FOREIGN KEY (jugador_ref) REFERENCES JUGADOR(codigo_inscripcion)
+  DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE TRABAJADOR ADD CONSTRAINT TRABAJADOR_PLANTA_TOTAL_FK
+  FOREIGN KEY (planta_ref) REFERENCES PERSONAL_PLANTA(codigo_inscripcion)
+  DEFERRABLE INITIALLY DEFERRED;
+
+CREATE OR REPLACE TRIGGER PERMANENCIA_NO_SOLAPE_TRG
+FOR INSERT OR UPDATE ON PERMANENCIA_CLUB
+COMPOUND TRIGGER
+  TYPE codigos_t IS TABLE OF BOOLEAN INDEX BY PLS_INTEGER;
+  codigos codigos_t;
+  PROCEDURE bloquear(p_codigo NUMBER) IS
+  BEGIN
+    IF p_codigo IS NOT NULL THEN
+      UPDATE TRABAJADOR SET codigo_inscripcion=codigo_inscripcion
+        WHERE codigo_inscripcion=p_codigo;
+      codigos(p_codigo):=TRUE;
+    END IF;
+  END;
+  BEFORE EACH ROW IS
+  BEGIN
+    IF UPDATING AND :OLD.codigo_inscripcion<>:NEW.codigo_inscripcion THEN
+      bloquear(LEAST(:OLD.codigo_inscripcion,:NEW.codigo_inscripcion));
+      bloquear(GREATEST(:OLD.codigo_inscripcion,:NEW.codigo_inscripcion));
+    ELSE
+      bloquear(:NEW.codigo_inscripcion);
+    END IF;
+  END BEFORE EACH ROW;
+  AFTER STATEMENT IS
+    codigo PLS_INTEGER;
+    n NUMBER;
+  BEGIN
+    codigo:=codigos.FIRST;
+    WHILE codigo IS NOT NULL LOOP
+      SELECT COUNT(*) INTO n FROM PERMANENCIA_CLUB a JOIN PERMANENCIA_CLUB b
+        ON a.codigo_inscripcion=b.codigo_inscripcion
+        AND (a.fecha_inicio<b.fecha_inicio OR (a.fecha_inicio=b.fecha_inicio AND a.id_club<b.id_club))
+      WHERE a.codigo_inscripcion=codigo
+        AND (a.fecha_termino IS NULL OR a.fecha_termino>=b.fecha_inicio);
+      IF n>0 THEN
+        RAISE_APPLICATION_ERROR(-20020,'Permanencias superpuestas para jugador '||codigo||'.');
+      END IF;
+      codigo:=codigos.NEXT(codigo);
+    END LOOP;
+  END AFTER STATEMENT;
+END;
+/
+SHOW ERRORS TRIGGER PERMANENCIA_NO_SOLAPE_TRG
+DECLARE
+  n NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO n FROM user_objects
+  WHERE object_name='PERMANENCIA_NO_SOLAPE_TRG' AND status='VALID';
+  IF n<>1 THEN RAISE_APPLICATION_ERROR(-20021,'El trigger no compilo. Revisar USER_ERRORS.'); END IF;
+END;
+/
+
+INSERT INTO REGION VALUES (1,'ARICA Y PARINACOTA Y TARAPACA');
+INSERT INTO REGION VALUES (2,'ANTOFAGASTA');
+INSERT INTO REGION VALUES (3,'ATACAMA Y COQUIMBO');
+INSERT INTO REGION VALUES (5,'VALPARAISO');
+INSERT INTO REGION VALUES (13,'METROPOLITANA');
+INSERT INTO REGION VALUES (8,'BIOBIO');
+INSERT INTO REGION VALUES (16,'ÑUBLE');
+
+INSERT INTO COMUNA (id_comuna,id_region,nombre) VALUES (101,13,'Santiago');
+INSERT INTO COMUNA (id_comuna,id_region,nombre) VALUES (102,5,'Valparaíso');
+INSERT INTO COMUNA (id_comuna,id_region,nombre) VALUES (103,8,'Concepción');
+INSERT INTO COMUNA (id_comuna,id_region,nombre) VALUES (104,2,'Antofagasta');
+INSERT INTO COMUNA (id_comuna,id_region,nombre) VALUES (105,16,'Chillán');
+
+INSERT INTO ASOCIACION VALUES (25,'Asociación de Fútbol de Santiago',DATE '2001-05-15','P');
+INSERT INTO ASOCIACION VALUES (26,'Asociación Nacional de Fútbol Amateur',DATE '1998-03-10','A');
+INSERT INTO ASOCIACION VALUES (27,'Asociación de Fútbol de Valparaíso',DATE '1987-07-21','P');
+INSERT INTO ASOCIACION VALUES (28,'Asociación de Fútbol de Concepción',DATE '1995-11-30','A');
+INSERT INTO ASOCIACION VALUES (29,'Asociación de Fútbol de Antofagasta',DATE '2003-06-25','P');
+INSERT INTO ASOCIACION VALUES (30,'Asociación de Fútbol de Temuco',DATE '2010-01-12','A');
+INSERT INTO ASOCIACION VALUES (31,'Asociación de Fútbol de Rancagua',DATE '1999-09-08','P');
+INSERT INTO ASOCIACION VALUES (32,'Asociación de Fútbol de Puerto Montt',DATE '2005-04-20','A');
+INSERT INTO ASOCIACION VALUES (33,'Asociación de Fútbol de La Serena',DATE '2012-08-14','P');
+INSERT INTO ASOCIACION VALUES (34,'Asociación de Fútbol de Chillán',DATE '2018-12-01','A');
+
+INSERT INTO NACIONALIDAD (descripcion) VALUES ('Chilena');
+INSERT INTO NACIONALIDAD (descripcion) VALUES ('Argentina');
+INSERT INTO NACIONALIDAD (descripcion) VALUES ('Peruana');
+INSERT INTO NACIONALIDAD (descripcion) VALUES ('Boliviana');
+INSERT INTO NACIONALIDAD (descripcion) VALUES ('Brasileña');
+
+INSERT INTO CLUB_FUTBOL VALUES (SEQ_CLUB_FUTBOL.NEXTVAL,'Colo-Colo',500000000,'Av. Marathon 5300','Profesional');
+INSERT INTO CLUB_FUTBOL VALUES (SEQ_CLUB_FUTBOL.NEXTVAL,'Universidad de Chile',450000000,'Av. El Parrón 0931','Profesional');
+INSERT INTO CLUB_FUTBOL VALUES (SEQ_CLUB_FUTBOL.NEXTVAL,'Deportes Antofagasta',180000000,'Avenida Angamos 01606','Profesional');
+INSERT INTO CLUB_FUTBOL VALUES (SEQ_CLUB_FUTBOL.NEXTVAL,'Huachipato',220000000,'Avenida Desiderio García 909','Profesional');
+INSERT INTO CLUB_FUTBOL VALUES (SEQ_CLUB_FUTBOL.NEXTVAL,'Ñublense',170000000,'Avenida Pedro Aguirre Cerda 1003','Profesional');
+COMMIT;
+
+COLUMN ASOCIACION FORMAT A90
+COLUMN CREADA FORMAT A10
+COLUMN TIPO FORMAT A4
+SELECT 'ID:' || id_asociacion || ' * ' || nombre_asociacion AS "ASOCIACION",
+       TO_CHAR(fecha_creacion,'DD-MM-YYYY') AS "CREADA",
+       tipo_asociacion AS "TIPO"
+FROM ASOCIACION
+WHERE tipo_asociacion = 'P'
+  AND fecha_creacion >= DATE '2001-01-01'
+ORDER BY fecha_creacion DESC;
+
+SELECT id_club AS "CLUB", nombre_club AS "NOMBRE CLUB",
+       patrimonio AS "PATRIMONIO EN PESOS",
+       patrimonio / 955 AS "PATRIMONIO EN DOLARES"
+FROM CLUB_FUTBOL
+WHERE LOWER(nombre_club) LIKE '%a%'
+  AND patrimonio > 200000000
+  AND tipo_club = 'Profesional'
+ORDER BY id_club DESC;
+
+SELECT id_nacion, descripcion FROM NACIONALIDAD ORDER BY id_nacion;
+SELECT id_club, nombre_club FROM CLUB_FUTBOL ORDER BY id_club;

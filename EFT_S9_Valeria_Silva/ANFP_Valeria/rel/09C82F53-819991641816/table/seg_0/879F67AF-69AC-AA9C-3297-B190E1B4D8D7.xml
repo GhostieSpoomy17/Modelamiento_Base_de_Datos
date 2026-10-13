@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="879F67AF-69AC-AA9C-3297-B190E1B4D8D7" name="IDIOMA">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>56FA0C4B-973B-4876-B7DE-CB786731C68A</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<adequatelyNormalized>YES</adequatelyNormalized>
+<expectedVolumes></expectedVolumes>
+<maxVolumes></maxVolumes>
+<minVolumes></minVolumes>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_idioma" id="30A8480F-BCD7-5C33-E22E-E26D39C0A5FB">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>4F055EBB-F0CA-40A5-8493-98F016909428</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="D4AA0013-6F49-5C28-E482-DCEF1D8A5E8B">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>0C6AC6EC-D9F9-4C89-A1C0-D0C012F92D35</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="730C1EB0-FC3D-281B-DE01-6C225957B533" name="IDIOMA_PK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>35521BE7-7309-4014-A4BF-A3922AD128A4</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="30A8480F-BCD7-5C33-E22E-E26D39C0A5FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="226FE154-1814-081A-D67A-0539D8F60499" name="IDIOMA_NOMBRE_UN">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<importedID>368B1BE8-A205-D349-2E0A-7D701A2ED3F2</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4AA0013-6F49-5C28-E482-DCEF1D8A5E8B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

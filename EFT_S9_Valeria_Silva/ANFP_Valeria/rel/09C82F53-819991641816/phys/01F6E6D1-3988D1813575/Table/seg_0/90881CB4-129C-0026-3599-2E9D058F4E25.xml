@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="REGION" directorySegmentName="seg_0" id="90881CB4-129C-0026-3599-2E9D058F4E25">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="id_region" id="99AF4D7D-5972-4548-5024-5E3AC31436C8">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nombre" id="BA1EFBBD-7529-DBB2-F114-1E2A59E71277">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="REGION_PK" id="50E5EE6F-CBAA-0A70-A1CA-740899C366F7">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

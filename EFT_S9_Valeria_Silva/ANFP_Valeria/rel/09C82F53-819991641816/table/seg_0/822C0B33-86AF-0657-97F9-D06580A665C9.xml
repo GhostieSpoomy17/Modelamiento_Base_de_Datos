@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="822C0B33-86AF-0657-97F9-D06580A665C9" name="JUGADOR_IDIOMA">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>329C0276-9F98-490D-8D69-A5F8AFE09E6F</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<adequatelyNormalized>YES</adequatelyNormalized>
+<expectedVolumes></expectedVolumes>
+<maxVolumes></maxVolumes>
+<minVolumes></minVolumes>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nivel_dominio" id="D330FE0B-F59F-4BA2-A4D6-0A89C6956757">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>2E0FC8CC-6336-4B33-9EA9-CE66D10686AB</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="codigo_inscripcion" id="BCE823B4-643A-AAD6-D6AA-0D840F36C3AD">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>37FA93DB-80FE-4A95-970F-F33BC02AE9E9</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="66AD8917-8470-326D-5C89-734220833A50" referredColumn="2D16D4E5-9E51-684A-FF9E-9BD6E06DC9E1"/>
+</associations>
+</Column>
+<Column name="id_idioma" id="080E714F-EFAA-2DBD-028C-761A7299D4EE">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>E004A733-7D8A-4071-A15F-563862B53CDE</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C5197F98-1370-CFA1-1A42-1615DB02215A" referredColumn="30A8480F-BCD7-5C33-E22E-E26D39C0A5FB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F55D7468-28BB-F0E6-8995-D0424D0FD38F" name="JUGADOR_IDIOMA_PK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>D5A08E9B-FDF9-4A49-B286-3629CB1544B5</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCE823B4-643A-AAD6-D6AA-0D840F36C3AD"/>
+<colUsage columnID="080E714F-EFAA-2DBD-028C-761A7299D4EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8593E9E-BDA5-87F7-AE9B-4BBE881E3D53" name="JUGADOR_IDIOMA_IDIOMA_FK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>E5C658D5-236F-475D-8132-57B550818EA4</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="080E714F-EFAA-2DBD-028C-761A7299D4EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CAE8CB86-1448-0264-CC57-EDB096604F66" name="JUGADOR_IDIOMA_JUGADOR_FK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>066EEE7E-D241-40E0-B1A8-FFC86FE98F5D</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCE823B4-643A-AAD6-D6AA-0D840F36C3AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

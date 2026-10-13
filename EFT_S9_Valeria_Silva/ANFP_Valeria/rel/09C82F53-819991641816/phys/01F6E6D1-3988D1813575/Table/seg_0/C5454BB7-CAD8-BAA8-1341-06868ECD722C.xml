@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="PERSONAL_PLANTA" directorySegmentName="seg_0" id="C5454BB7-CAD8-BAA8-1341-06868ECD722C">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="id_club" id="11C071F1-D0A6-5149-261F-20C70ECE46D3">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="horas_trabajadas" id="8749E244-86B9-A606-3AF6-192D1F9D6E25">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="valor_hora_extra" id="944DD766-106C-6847-380B-8B2621231CA9">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="tipo_trabajador" id="9CEB4601-C12E-B0FC-B927-D47912EA7836">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:23:42 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<columnExpression>CAST(CASE WHEN codigo_inscripcion IS NOT NULL THEN &apos;P&apos; END AS CHAR(1))</columnExpression>
+</ColumnProxy>
+<ColumnProxy name="codigo_inscripcion" id="BCD1C6AF-BCAF-58C2-C4C2-98358C7603AF">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PLANTA_TRABAJADOR_FK" id="74B03128-65DD-1D0B-B0D8-DE4EAA3FB194">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PLANTA_CLUB_FK" id="912C24F3-AD87-8198-2B44-6AEFBDF653D7">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PLANTA_TIPO_FK" id="AFEB03C4-D750-2241-C463-DFA5ABA2CE75">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:23:42 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<deferrable>YES</deferrable>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PERSONAL_PLANTA_PK" id="8C0110AA-F784-8141-4C35-59C591CDA3C5">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="PLANTA_HORAS_CK" id="6055D847-1032-B41E-A0B6-969CD1C62326">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+<TableCheckConstraint name="PLANTA_VALOR_HORA_CK" id="AF4FC19B-DDE4-50DE-447C-825F07544D8C">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev20c>

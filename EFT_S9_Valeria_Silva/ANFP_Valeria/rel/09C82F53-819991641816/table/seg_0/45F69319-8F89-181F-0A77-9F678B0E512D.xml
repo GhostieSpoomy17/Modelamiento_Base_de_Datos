@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="45F69319-8F89-181F-0A77-9F678B0E512D" name="PERMANENCIA_CLUB">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>E37059EF-E755-46B3-93C7-83CF9931C215</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<adequatelyNormalized>YES</adequatelyNormalized>
+<expectedVolumes></expectedVolumes>
+<maxVolumes></maxVolumes>
+<minVolumes></minVolumes>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo_inscripcion" id="BB45D217-EEBF-8BED-7C83-23BFD6B9F452">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>CB179FDC-BBDF-4C70-B8EE-3632078E859A</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="570DB575-B7B6-6FA1-290A-8551BEE33DD6" referredColumn="2D16D4E5-9E51-684A-FF9E-9BD6E06DC9E1"/>
+</associations>
+</Column>
+<Column name="id_club" id="58C8D583-BF9A-E27C-CC25-F0D4090CE210">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>4E2E4D93-53E9-48C3-B243-DE63D645DFF4</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="36E1CDF1-71B8-1B2A-984C-C0CC6114CB85" referredColumn="47B6C4E3-30E9-15BC-3FD8-89CD6DED7678"/>
+</associations>
+</Column>
+<Column name="fecha_inicio" id="3DB556FE-D819-97B4-ACE2-91C5A837C0D9">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>912571CE-16E4-47FA-A019-BB23FFB91406</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_termino" id="9D4DE3F4-481B-5C36-08D1-DC2ED7914136">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>DD9EFD22-6AC2-4250-951A-B06C8414B79A</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A8E9C7EC-C63B-7864-3BDD-507DFD079D8A" name="PERMANENCIA_CLUB_PK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>8AA7E4E4-817A-4FCA-B0EA-FE3223649ACC</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB45D217-EEBF-8BED-7C83-23BFD6B9F452"/>
+<colUsage columnID="58C8D583-BF9A-E27C-CC25-F0D4090CE210"/>
+<colUsage columnID="3DB556FE-D819-97B4-ACE2-91C5A837C0D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="88C59271-B9DB-EA38-D5B2-1D7161B62768" name="PERMANENCIA_CLUB_FK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>E46FD0E6-EC96-43F6-A429-70D8FA7AB4C6</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58C8D583-BF9A-E27C-CC25-F0D4090CE210"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="46CC75B4-DE55-8864-B85D-FC2E19DDB122" name="PERMANENCIA_JUGADOR_FK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>90F9E172-4937-46A5-8268-BD098E4992E3</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB45D217-EEBF-8BED-7C83-23BFD6B9F452"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="PERMANENCIA_FECHAS_CK" directorySegmentName="seg_0" id="3ADA0591-0C87-6E05-429F-95682E72C44C">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<importedID>A0F580D0-C586-0C56-17E8-ED9053F6C500</importedID>
+<rule><![CDATA[fecha_termino IS NULL OR fecha_termino >= fecha_inicio]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

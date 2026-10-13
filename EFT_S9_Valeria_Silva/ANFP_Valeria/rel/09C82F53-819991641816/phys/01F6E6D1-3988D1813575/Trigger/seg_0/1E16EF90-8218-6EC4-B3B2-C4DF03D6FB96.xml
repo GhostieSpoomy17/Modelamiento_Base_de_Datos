@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="PERMANENCIA_NO_SOLAPE_TRG" directorySegmentName="seg_0" id="1E16EF90-8218-6EC4-B3B2-C4DF03D6FB96">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:23:30 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[COMPOUND TRIGGER
+  TYPE codigos_t IS TABLE OF BOOLEAN INDEX BY PLS_INTEGER;
+  codigos codigos_t;
+  PROCEDURE bloquear(p_codigo NUMBER) IS
+  BEGIN
+    IF p_codigo IS NOT NULL THEN
+      -- Serializa las modificaciones del historial del mismo trabajador.
+      -- Actualizacion sin cambio de valor: conserva tambien la proteccion
+      -- contra una instantanea antigua bajo aislamiento SERIALIZABLE.
+      UPDATE TRABAJADOR SET codigo_inscripcion=codigo_inscripcion
+        WHERE codigo_inscripcion=p_codigo;
+      codigos(p_codigo):=TRUE;
+    END IF;
+  END;
+  BEFORE EACH ROW IS
+  BEGIN
+    IF UPDATING AND :OLD.codigo_inscripcion<>:NEW.codigo_inscripcion THEN
+      -- Orden estable al cambiar el jugador de una fila.
+      bloquear(LEAST(:OLD.codigo_inscripcion,:NEW.codigo_inscripcion));
+      bloquear(GREATEST(:OLD.codigo_inscripcion,:NEW.codigo_inscripcion));
+    ELSE
+      bloquear(:NEW.codigo_inscripcion);
+    END IF;
+  END BEFORE EACH ROW;
+  AFTER STATEMENT IS
+    codigo PLS_INTEGER;
+    n NUMBER;
+  BEGIN
+    codigo:=codigos.FIRST;
+    WHILE codigo IS NOT NULL LOOP
+      SELECT COUNT(*) INTO n FROM PERMANENCIA_CLUB a JOIN PERMANENCIA_CLUB b
+        ON a.codigo_inscripcion=b.codigo_inscripcion
+        AND (a.fecha_inicio<b.fecha_inicio OR (a.fecha_inicio=b.fecha_inicio AND a.id_club<b.id_club))
+      WHERE a.codigo_inscripcion=codigo
+        AND (a.fecha_termino IS NULL OR a.fecha_termino>=b.fecha_inicio);
+      IF n>0 THEN
+        RAISE_APPLICATION_ERROR(-20020,'Permanencias superpuestas para jugador '||codigo||'.');
+      END IF;
+      codigo:=codigos.NEXT(codigo);
+    END LOOP;
+  END AFTER STATEMENT;
+END;]]></body>
+<triggerTime>COMPOUND</triggerTime>
+<scope>FOR EACH STATEMENT</scope>
+<table>45F69319-8F89-181F-0A77-9F678B0E512D</table>
+</TriggerOraclev10g>

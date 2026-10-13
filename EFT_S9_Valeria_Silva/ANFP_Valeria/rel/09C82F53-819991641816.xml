@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="MR_ANFP" id="09C82F53-73C7-3947-0796-819991641816" mainViewID="A8E3540D-4B7A-D330-432D-128B8CD79875">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:45:48 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<shouldBeOpen>true</shouldBeOpen>
+<selectedRDBMSSite>01F6E6D1-21D0-CFBD-ABDD-3988D1813575</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>ANFP_Modelo_Fisico.sql</fileName>
+<pathName>C:\Users\MBX\.codex\.chatgpt-projects\g-p-69b1c4c7a0f88191af4123f4ed4e53dd\ANFP</pathName>
+<dbType>17</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

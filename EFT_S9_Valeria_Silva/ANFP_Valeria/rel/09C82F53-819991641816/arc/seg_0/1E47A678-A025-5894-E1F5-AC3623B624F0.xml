@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKArc class="oracle.dbtools.crest.model.design.relational.FKArc" directorySegmentName="seg_0" id="1E47A678-A025-5894-E1F5-AC3623B624F0" name="FKArc_1">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<mandatory>true</mandatory>
+<reverseArc>true</reverseArc>
+<table>5B933EF0-B3D1-05A3-ED3B-FBB02FBE6FBF</table>
+<fkeys>
+<fkeyID>020B54D5-95C7-A140-D671-52694ABF8125</fkeyID>
+<fkeyID>28FD1624-EA1B-F7BD-1489-8FFB06A8F71D</fkeyID>
+</fkeys>
+</FKArc>

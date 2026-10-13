@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7BF66233-96C8-3BDA-086E-A847C5B897D6" name="ASOCIACION">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>50CCBE1E-1740-4CC9-8771-A510A45115AA</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<adequatelyNormalized>YES</adequatelyNormalized>
+<expectedVolumes></expectedVolumes>
+<maxVolumes></maxVolumes>
+<minVolumes></minVolumes>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_asociacion" id="33B7E1F6-C2F6-8BD4-98D1-51DDFC23750D">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>A53896EC-E06E-4FD2-9146-71F15800D4CA</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre_asociacion" id="E255DCAE-1043-B954-C078-85FE7855341C">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>323FAC72-C4AD-48C8-B6F3-46FC13177E3B</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_creacion" id="BB8C7EA1-28F5-458F-D218-8CBED14A907C">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>07EBB32B-24A3-4ACE-A8B9-029204E1D69D</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_asociacion" id="AD37E316-87A5-7B62-C6A2-78F8813FF629">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>62F3CE9B-CCD0-4909-A0F3-1F3D0DAA23DC</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="81DCA3A6-040C-0F77-8A68-4C9B35244337" name="ASOCIACION_PK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>C6E86661-33A1-43A1-A7BF-E6110FA39811</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33B7E1F6-C2F6-8BD4-98D1-51DDFC23750D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="ASOCIACION_FECHA_CK" directorySegmentName="seg_0" id="98C9FDE3-B074-56E1-45CE-188B5342E34C">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<importedID>A6C1E61A-D096-FD09-EF7C-0281A9F69E45</importedID>
+<rule><![CDATA[fecha_creacion >= DATE '1980-12-31']]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="ASOCIACION_TIPO_CK" directorySegmentName="seg_0" id="56F11687-E363-FB51-1DB2-6D497A580DEC">
+<sourceDDLFile>ANFP_Modelo_Fisico.sql</sourceDDLFile>
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<importedID>EBBD4F10-AD5A-0430-5E0D-221416E8C3EC</importedID>
+<rule><![CDATA[tipo_asociacion IN ('P','A')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

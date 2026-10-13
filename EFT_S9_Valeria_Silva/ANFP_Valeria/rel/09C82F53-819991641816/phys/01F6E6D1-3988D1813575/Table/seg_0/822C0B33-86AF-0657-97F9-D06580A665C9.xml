@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="JUGADOR_IDIOMA" directorySegmentName="seg_0" id="822C0B33-86AF-0657-97F9-D06580A665C9">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="id_idioma" id="080E714F-EFAA-2DBD-028C-761A7299D4EE">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="codigo_inscripcion" id="BCE823B4-643A-AAD6-D6AA-0D840F36C3AD">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nivel_dominio" id="D330FE0B-F59F-4BA2-A4D6-0A89C6956757">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JUGADOR_IDIOMA_IDIOMA_FK" id="B8593E9E-BDA5-87F7-AE9B-4BBE881E3D53">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JUGADOR_IDIOMA_JUGADOR_FK" id="CAE8CB86-1448-0264-CC57-EDB096604F66">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="JUGADOR_IDIOMA_PK" id="F55D7468-28BB-F0E6-8995-D0424D0FD38F">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

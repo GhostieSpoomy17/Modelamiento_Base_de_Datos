@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="CLUB_FUTBOL" directorySegmentName="seg_0" id="B59DEB15-8019-FD30-4A85-25B86DF7092B">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="patrimonio" id="0E78B3B7-9E85-EC5F-40AB-31CA97221895">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="tipo_club" id="2E4DD5EE-A3FA-BE06-4980-03E45357ED52">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ubicacion_calle" id="3E1A7788-BA8E-280F-75F3-43B14F69F869">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_club" id="47B6C4E3-30E9-15BC-3FD8-89CD6DED7678">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nombre_club" id="D579D30C-9C61-248C-DACF-244D5F23C0FC">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CLUB_FUTBOL_PK" id="9AB21CD9-2A13-3EF6-C043-D5F9D9B42035">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="CLUB_FUTBOL_TIPO_CK" id="8AB5C3AC-7456-39B4-2C7B-DD429078228F">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+<TableCheckConstraint name="CLUB_FUTBOL_PATRIMONIO_CK" id="EAF819E7-F508-4D58-A378-3FBF83CED69D">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="CLUB_FUTBOL_NOMBRE_UN" id="1059DB83-F8AA-145A-62FF-675EA9F53C63">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

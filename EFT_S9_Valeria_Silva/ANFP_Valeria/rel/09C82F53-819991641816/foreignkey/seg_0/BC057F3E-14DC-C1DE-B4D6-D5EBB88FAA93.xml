@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC057F3E-14DC-C1DE-B4D6-D5EBB88FAA93" containerWithKeyObject="C5454BB7-CAD8-BAA8-1341-06868ECD722C" localFKIndex="912C24F3-AD87-8198-2B44-6AEFBDF653D7" name="PLANTA_CLUB_FK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>5E75A024-C6AC-4062-BF57-44F10F8EF00B</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<referredTableLongName>CLUB_FUTBOL</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B59DEB15-8019-FD30-4A85-25B86DF7092B</referredTableID>
+<keyObject>9AB21CD9-2A13-3EF6-C043-D5F9D9B42035</keyObject>
+<referredKeyID>9AB21CD9-2A13-3EF6-C043-D5F9D9B42035</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_club</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

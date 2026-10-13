@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="JUGADOR" directorySegmentName="seg_0" id="11C4B15B-11A9-3426-5768-9D9FFE2D146C">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="codigo_inscripcion" id="2D16D4E5-9E51-684A-FF9E-9BD6E06DC9E1">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_asociacion" id="2D369FED-C2B0-C3B9-3754-E56AD735848D">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="tipo_trabajador" id="47E2ABAF-E6C3-508E-20AC-AD5A05B0088E">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:23:42 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<columnExpression>CAST(CASE WHEN codigo_inscripcion IS NOT NULL THEN &apos;J&apos; END AS CHAR(1))</columnExpression>
+</ColumnProxy>
+<ColumnProxy name="puesto" id="6837F754-8300-331B-97D7-5E423F264253">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="anio_fin_amateur" id="BC5AD7C9-7635-2B87-D52B-5590C109471A">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="total_premios" id="D9A5F738-9198-8EF5-4EA6-155CA4243868">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="id_escuela" id="E62D9C60-FA85-0999-6581-EA4EBB61EFA1">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JUGADOR_TIPO_FK" id="191B53FB-048E-23DF-618A-FFC2D07A468E">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:23:42 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<deferrable>YES</deferrable>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JUGADOR_ASOCIACION_FK" id="4B112A6C-CE65-C89C-5B07-F89412F45625">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JUGADOR_TRABAJADOR_FK" id="5D520CA8-27F0-9C59-8E95-433D309CBD21">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JUGADOR_ESCUELA_FK" id="BCAE21CF-B8E3-CA3A-C001-F6385EED2203">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="JUGADOR_PK" id="178D9ADA-DA77-AC73-9B5C-462BB5BA264E">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:27 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="JUGADOR_FORMACION_CK" id="6425E28E-7898-85F7-CA02-1EFA49F2140C">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+<TableCheckConstraint name="JUGADOR_PREMIOS_CK" id="8C9D4AB8-E68D-1B0C-5C98-9EFE7E56E14E">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+<TableCheckConstraint name="JUGADOR_ANIO_CK" id="B09E1D4B-DD30-8F5F-C5C3-1BB8CAC8CB97">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 01:11:59 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev20c>

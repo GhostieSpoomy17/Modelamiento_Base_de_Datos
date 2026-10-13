@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="A8E3540D-4B7A-D330-432D-128B8CD79875" name="MR_ANFP" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

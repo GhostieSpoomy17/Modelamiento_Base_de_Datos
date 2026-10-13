@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="36E1CDF1-71B8-1B2A-984C-C0CC6114CB85" containerWithKeyObject="45F69319-8F89-181F-0A77-9F678B0E512D" localFKIndex="88C59271-B9DB-EA38-D5B2-1D7161B62768" name="PERMANENCIA_CLUB_FK">
+<createdBy>MBX</createdBy>
+<createdTime>2026-10-12 00:46:37 UTC</createdTime>
+<generatorID>E46FD0E6-EC96-43F6-A429-70D8FA7AB4C6</generatorID>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<referredTableLongName>CLUB_FUTBOL</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B59DEB15-8019-FD30-4A85-25B86DF7092B</referredTableID>
+<keyObject>9AB21CD9-2A13-3EF6-C043-D5F9D9B42035</keyObject>
+<referredKeyID>9AB21CD9-2A13-3EF6-C043-D5F9D9B42035</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_club</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

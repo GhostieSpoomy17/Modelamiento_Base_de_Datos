@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ANFP_Valeria" id="15711328-A3BC-4892-9AC1-B6BD7177ABA1" version="3.5">
+<createdBy>Valeria</createdBy>
+<createdTime>2026-10-11 23:00:00 UTC</createdTime>
+<ownerDesignName>ANFP_Valeria</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>15711328-A3BC-4892-9AC1-B6BD7177ABA1</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="416C5AB6-D13A-6E6A-6D59-2765644B5CD4">
+<designStoragePath>C:\ANFP_Modelo_Fisico</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="91765890-2628-F717-7737-54E6AB07ED10">
+<designStoragePath>C:\ANFP_Modelo_Fisico</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
